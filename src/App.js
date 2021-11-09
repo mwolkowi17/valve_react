@@ -7,6 +7,7 @@ import { Scene } from './Loader';
 import { Kurek} from './Loader2';
 
 
+
 function App() {
 
 
@@ -35,6 +36,7 @@ function App() {
       <Scene onClick={(event)=>setColorkurek(kurektypeblue)} />
       <Kurek color={colorkurek} />
       {showA&&<Kurek color={kurektypeblue} />}
+      
       </Suspense>
     </Canvas>
     <button id={'buttonkurek'} onClick={(event)=>changekurek()}>Color</button>
