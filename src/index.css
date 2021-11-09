@@ -17,3 +17,11 @@ canvas{
   height: 100%;
   background-color: black;
 }
+
+#buttonkurek{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 30px;
+}
