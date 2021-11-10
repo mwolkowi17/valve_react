@@ -10,21 +10,20 @@ export function Kurek(props) {
 
     const mixer = useRef();
     const gltf = useLoader(GLTFLoader, props.color)
-
+//animatio segment start
     useEffect(()=>{if (gltf) {
       mixer.current = new THREE.AnimationMixer(gltf.scene)
         const action = mixer.current.clipAction(gltf.animations[0])
       console.log(gltf.animations)
-      //mixer.current.setTime(0);
-      //mixer.current.timeScale=1;
        action.play()
     }
   }, [gltf])
 
-  //useFrame(({ clock }) => mixer.current && mixer.current.update(clock.getDelta()))
   useFrame((state, delta) => {
     mixer.current?.update(delta)
 })
+// animation segment end
+
     return (
       <>
         <OrbitControls />
