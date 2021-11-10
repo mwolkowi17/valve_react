@@ -5,6 +5,7 @@ import { Suspense, useState }  from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Scene } from './Loader';
 import { Kurek} from './Loader2';
+import {Kurek2} from './Loader3';
 
 
 
@@ -16,12 +17,14 @@ function App() {
  
   const [colorkurek,setColorkurek] = useState(kurektype)
   const [showA,setShow]=useState(true);
+  const [showB,setShowB]=useState(false)
 
   function changekurek(){
     if(showA===true){
-      
+      setShowB(true)
       setShow(false);
     } else {
+     setShowB(false)
       setShow(true)
     }
   }
@@ -34,7 +37,8 @@ function App() {
       <pointLight position={[10, 10, 10]} />
 
       <Scene onClick={(event)=>setColorkurek(kurektypeblue)} />
-      <Kurek color={colorkurek} />
+      {/*<Kurek color={colorkurek} />*/}
+      {showB&&<Kurek2 color={kurektype} />}
       {showA&&<Kurek color={kurektypeblue} />}
       
       </Suspense>
