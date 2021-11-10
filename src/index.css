@@ -21,7 +21,13 @@ canvas{
 #buttonkurek{
   position: absolute;
   bottom: 20px;
-  left: 20px;
-  width: 60px;
-  height: 30px;
+  left: 50px;
+  width: 100px;
+  height: 40px;
+  border-radius: 25px;
+  background-color: mediumturquoise;
+  cursor: pointer;
+}
+#buttonkurek:hover{
+  background-color: paleturquoise;
 }
