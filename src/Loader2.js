@@ -3,13 +3,15 @@ import * as THREE from 'three'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from "@react-three/drei";
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 
 
 export function Kurek(props) {
 
   const mixer = useRef();
-  const gltf = useLoader(GLTFLoader, props.color)
+  const gltf = useLoader(GLTFLoader,'/zawor_kulowy_three_kula3_kurek_blue.glb')
+  const gltfcopy = useMemo(() => gltf.scene.clone(), [gltf.scene])
+
   //animatio segment start
   useEffect(() => {
     if (gltf) {
@@ -28,7 +30,7 @@ export function Kurek(props) {
   return (
     <>
       <OrbitControls />
-      <primitive object={gltf.scene} />
+      <primitive object={gltfcopy} dispose={null} />
     </>
   )
 }

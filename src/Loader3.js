@@ -28,7 +28,7 @@ export function Kurek2(props) {
   return (
     <>
       <OrbitControls />
-      <primitive object={gltf.scene} />
+      <primitive object={gltf.scene} dispose={null} />
     </>
   )
 }

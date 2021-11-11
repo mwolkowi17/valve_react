@@ -36,10 +36,10 @@ function App() {
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
 
-      <Scene onClick={(event)=>setColorkurek(kurektypeblue)} />
+      <Scene  />
       {/*<Kurek color={colorkurek} />*/}
-      {showB&&<Kurek2 color={kurektype} />}
-      {showA&&<Kurek color={kurektypeblue} />}
+      {showB&&<Kurek2 color={colorkurek} />}
+      {showA&&<Kurek  />}
       
       </Suspense>
     </Canvas>
