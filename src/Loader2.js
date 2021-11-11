@@ -15,7 +15,7 @@ export function Kurek(props) {
   //animatio segment start
   useEffect(() => {
     if (gltf) {
-      mixer.current = new THREE.AnimationMixer(gltf.scene)
+      mixer.current = new THREE.AnimationMixer(gltfcopy)
       const action = mixer.current.clipAction(gltf.animations[0])
       console.log(gltf.animations)
       action.play()
