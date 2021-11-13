@@ -17,7 +17,8 @@ function App() {
  
   const [colorkurek,setColorkurek] = useState(kurektype)
   const [showA,setShow]=useState(true);
-  const [showB,setShowB]=useState(false)
+  const [showB,setShowB]=useState(false);
+  const [startPlay,setStartPlay]=useState(false);
 
   function changekurek(){
     if(showA===true){
@@ -26,6 +27,14 @@ function App() {
     } else {
      setShowB(false)
       setShow(true)
+    }
+  }
+
+  function changePlay(){
+    if(startPlay===true){
+      setStartPlay(false)
+    }else{
+      setStartPlay(true)
     }
   }
   console.log(colorkurek);
@@ -38,12 +47,13 @@ function App() {
 
       <Scene  />
       {/*<Kurek color={colorkurek} />*/}
-      {showB&&<Kurek2 color={colorkurek} ifPlay={true} />}
-      {showA&&<Kurek ifPlay={true} />}
+      {showB&&<Kurek2 color={colorkurek} ifPlay={startPlay} />}
+      {showA&&<Kurek ifPlay={startPlay} />}
       
       </Suspense>
     </Canvas>
     <button id={'buttonkurek'} onClick={(event)=>changekurek()}>Color</button>
+    <button id={'start'} onClick={(event)=>changePlay()}>Open/Close</button>
     </div>
     
   );

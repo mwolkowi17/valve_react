@@ -31,3 +31,17 @@ canvas{
 #buttonkurek:hover{
   background-color: paleturquoise;
 }
+
+#start{
+  position: absolute;
+  bottom: 20px;
+  left: 200px;
+  width: 100px;
+  height: 40px;
+  border-radius: 25px;
+  background-color: mediumturquoise;
+  cursor: pointer;
+}
+#start:hover{
+  background-color: paleturquoise;
+}
