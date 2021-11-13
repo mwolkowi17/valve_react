@@ -20,7 +20,7 @@ export function Kurek2(props) {
       action.play()
       }
     }
-  }, [gltf])
+  }, [gltf, props.ifPlay])
 
   useFrame((state, delta) => {
     mixer.current?.update(delta)

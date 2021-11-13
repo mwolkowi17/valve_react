@@ -31,10 +31,10 @@ function App() {
   }
 
   function changePlay(){
-    if(startPlay===true){
-      setStartPlay(false)
-    }else{
+    if(startPlay===false){
       setStartPlay(true)
+    }else{
+      setStartPlay(false)
     }
   }
   console.log(colorkurek);
