@@ -16,7 +16,9 @@ export function Kurek2(props) {
       mixer.current = new THREE.AnimationMixer(gltf.scene)
       const action = mixer.current.clipAction(gltf.animations[0])
       console.log(gltf.animations)
+      if(props.ifPlay===true){
       action.play()
+      }
     }
   }, [gltf])
 

@@ -38,8 +38,8 @@ function App() {
 
       <Scene  />
       {/*<Kurek color={colorkurek} />*/}
-      {showB&&<Kurek2 color={colorkurek} />}
-      {showA&&<Kurek  />}
+      {showB&&<Kurek2 color={colorkurek} ifPlay={true} />}
+      {showA&&<Kurek ifPlay={true} />}
       
       </Suspense>
     </Canvas>
