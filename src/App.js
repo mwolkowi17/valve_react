@@ -39,6 +39,10 @@ function App() {
     setIsDisplay(true)
   }
 
+  function closeDetails(){
+    setIsDisplay(false)
+  }
+
   return (
     <div>
       <Canvas camera={{ fov: 75, near: 0.1, far: 1000, position: [0, 0, 4] }}>
@@ -56,7 +60,7 @@ function App() {
       </Canvas>
       <button id={'buttonkurek'} onClick={(event) => changekurek()}>Color</button>
       <button id={'start'} onClick={(event) => changePlay()}>Open/Stop</button>
-      <Display isVisible={isDisplay ? 'visible' : 'hidden'} />
+      <Display isVisible={isDisplay ? 'visible' : 'hidden'} closeDisplay={closeDetails} />
     </div>
 
   );
