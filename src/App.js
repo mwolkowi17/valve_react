@@ -1,61 +1,64 @@
 
 import './App.css';
 //import {useState} from 'react'
-import { Suspense, useState }  from 'react';
+import { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Scene } from './Loader';
-import { Kurek} from './Loader2';
-import {Kurek2} from './Loader3';
+import { Kurek } from './Loader2';
+import { Kurek2 } from './Loader3';
+import { Display } from './Display';
 
 
 
 function App() {
 
+  const [showA, setShow] = useState(true);
+  const [showB, setShowB] = useState(false);
+  const [startPlay, setStartPlay] = useState(false);
+  const [isDisplay, setIsDisplay] = useState(false)
 
-  const kurektype = '/zawor_kulowy_three_kula3_kurek.glb';
-  const kurektypeblue = '/zawor_kulowy_three_kula3_kurek_blue.glb'
- 
-  const [colorkurek,setColorkurek] = useState(kurektype)
-  const [showA,setShow]=useState(true);
-  const [showB,setShowB]=useState(false);
-  const [startPlay,setStartPlay]=useState(false);
-
-  function changekurek(){
-    if(showA===true){
+  function changekurek() {
+    if (showA === true) {
       setShowB(true)
       setShow(false);
     } else {
-     setShowB(false)
+      setShowB(false)
       setShow(true)
     }
   }
 
-  function changePlay(){
-    if(startPlay===false){
+  function changePlay() {
+    if (startPlay === false) {
       setStartPlay(true)
-    }else{
+    } else {
       setStartPlay(false)
     }
   }
-  console.log(colorkurek);
+
+  function showDetailsFunc() {
+    setIsDisplay(true)
+  }
+
   return (
     <div>
-    <Canvas>
-      <Suspense fallback={null}>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
+      <Canvas camera={{ fov: 75, near: 0.1, far: 1000, position: [0, 0, 4] }}>
+        <Suspense fallback={null}>
+          <ambientLight />
+          <pointLight position={[10, 20, 10]} />
+          <pointLight position={[-5, -15, 30]} />
 
-      <Scene  />
-      {/*<Kurek color={colorkurek} />*/}
-      {showB&&<Kurek2 color={colorkurek} ifPlay={startPlay} />}
-      {showA&&<Kurek ifPlay={startPlay} />}
-      
-      </Suspense>
-    </Canvas>
-    <button id={'buttonkurek'} onClick={(event)=>changekurek()}>Color</button>
-    <button id={'start'} onClick={(event)=>changePlay()}>Open/Close</button>
+          <Scene showDetails={showDetailsFunc}/>
+
+          {showB && <Kurek2 ifPlay={startPlay} />}
+          {showA && <Kurek ifPlay={startPlay} />}
+
+        </Suspense>
+      </Canvas>
+      <button id={'buttonkurek'} onClick={(event) => changekurek()}>Color</button>
+      <button id={'start'} onClick={(event) => changePlay()}>Open/Stop</button>
+      <Display isVisible={isDisplay ? 'visible' : 'hidden'} />
     </div>
-    
+
   );
 }
 
